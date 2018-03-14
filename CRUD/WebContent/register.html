@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Index page</title>
+</head>
+<body>
+<form action="SaveEmpServlet" method="post">
+<table>
+<tr><td>ID</td><td><input type ="number" name="id"></td></tr>
+<tr><td>Username</td><td><input type ="text" name="name"></td></tr>
+<tr><td>Password </td><td><input type="password" name="pass"></td></tr>
+<tr><td>Email </td><td><input type ="text" name="email"></td></tr>
+<tr><td>Contact No.</td><td><input type="number" name="mobile"></td></tr>
+<tr><td>Date of Birth</td><td><input type="date" name="dob"></td></tr>
+<tr><td>City</td><td>  
+<select name="city" style="width:150px">  
+<option>Mumbai</option>  
+<option>Pune</option>  
+<option>Hydrabad</option>  
+<option>Kerala</option>
+<option>Gujrat</option>
+<option>Other</option>  
+</select>  
+</td></tr>  
+<tr><td>Country </td><td>  
+<select name="country" style="width:150px">  
+<option>India</option>  
+<option>USA</option>  
+<option>UK</option>  
+<option>China</option>
+<option>Other</option>  
+</select>  
+</td></tr>  
+ <tr><td colspan="2"><input type="submit" value="Save Employee"/></td></tr>  
+</table>
+</form>
+</body>
+</html>
