@@ -1,17 +1,21 @@
 package servletDemo;
-import EmpData.EmpBean;
-import EmpData.EmpDAO;
+
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/SaveEmpServlet")
-public class SaveEmpServlet extends HttpServlet {
+import EmpData.EmpBean;
+import EmpData.EmpDAO;
+
+@WebServlet("/UpdateEmpServlet")
+public class UpdateEmpServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
@@ -35,10 +39,10 @@ public class SaveEmpServlet extends HttpServlet {
 		e.setCity(city);
 		e.setCountry(country);
 		
-		int status = EmpDAO.saveInfo(e);
+		int status = EmpDAO.updateInfo(e);
 		if(status>0) {
 			pw.print("<p>Data inserted successfully</p>");
-			request.getRequestDispatcher("register.html").include(request, response);
+			response.sendRedirect("ViewEmpServlet");
 		}
 		else {
 			pw.print("Sorry, Unable to save data");
@@ -49,4 +53,5 @@ public class SaveEmpServlet extends HttpServlet {
 		e.printStackTrace();
 	}
 	}
+
 }

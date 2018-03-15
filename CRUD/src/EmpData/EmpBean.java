@@ -3,15 +3,15 @@ package EmpData;
 import java.sql.Date;
 
 public class EmpBean {
-	private String id;
+	private int id;
 	private String name, pass, email,city, country,mobile,dob;
 	
 	
 	
-	public void setId(String id){
+	public void setId(int id){
 		this.id = id;
 	}
-	public String getId(){
+	public int getId(){
 		return id;
 	}
 	public void setName(String name){
