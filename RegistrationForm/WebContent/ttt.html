@@ -1,0 +1,55 @@
+
+$.validator.addMethod('strongPassword', function(value, element) {
+    return this.optional(element) 
+      || value.length >= 6
+      && /\d/.test(value)
+      && /[a-z]/i.test(value);
+}, 'Your password must be at least 6 characters long and contain at least one number and one char\'.')
+$(document).ready(function(){
+		$("#registerform").validate({
+			rules: {
+				ename :{
+					required:true,
+					minlength:6,
+				},
+				email: {
+			        required: true,
+			        email: true,
+			        remote: "http://localhost:3000/inputValidator"
+				},
+				pass: {
+			        required: true,
+			        strongPassword: true
+			      },
+			      cpass: {
+			        required: true,
+			        equalTo: '#password'
+			      },
+			      
+			      mobile: {
+			        required: true,
+			        digits: true,
+			        phonesIndia: true
+			      },
+			      address: {
+			        required: true
+			      },
+			messages: {
+				ename:{
+					required:"Please enter Name...",
+					minlength:"Please enter at least 6 characters for password..."
+				},
+				email: {
+					required:"Please Enter Email...",
+					email:"Please Enter valid email-id.."
+				},
+				pass: {
+					required:"Password is mandatory...",
+						minlength:"Please enter at least 4 characters for password..."
+				}
+			}
+		});
+		});
+		
+	
+

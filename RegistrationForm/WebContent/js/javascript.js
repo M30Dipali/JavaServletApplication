@@ -1,0 +1,52 @@
+$(document).ready(function(){  
+  $("#signinform").validate({
+    rules:{
+      email:{
+       required:true,
+       email:true
+      },
+      password:{
+       required:true,
+       minlength:5
+      }
+    }
+  });
+  $("#signupform").validate({
+    rules:{
+      uname:{
+       required:true,
+        minlength:5
+      },
+      newemail:{
+        required:true,
+       email:true
+      },
+      password1:{
+       required:true,
+       minlength:5
+      },
+      password2:{
+        required:true,
+        equalTo:"#password1"
+      }
+    }
+  });
+	$(".tab").click(function(){
+  var x = $(this).attr('id');
+  if(x=='signup'){
+  	$('#signin').removeClass('select');
+  	$('#signup').addClass('select');
+  	$('#signupbox').slideDown();
+  	$('#signinbox').slideUp();
+  }
+  else{
+  	$('#signup').removeClass('select');
+  	$('#signin').addClass('select');
+  	$('#signinbox').slideDown();
+  	$('#signupbox').slideUp();
+
+  }
+	});
+});
+
+ 
