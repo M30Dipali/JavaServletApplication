@@ -23,6 +23,8 @@ public class Serv extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		String name = request.getParameter("name");
+		long phoneNew = Long.parseLong( request.getParameter("phone"));
+		System.out.println(phoneNew);
 		InputStream inputStream = null; // input stream of the upload file
         
         // obtains the upload file part in this multipart request
@@ -39,12 +41,13 @@ public class Serv extends HttpServlet {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
-			PreparedStatement ps = con.prepareStatement("insert into photo(name,photo) values(?,?)");
+			PreparedStatement ps = con.prepareStatement("insert into photo(name,photo,phone) values(?,?,?)");
 			ps.setString(1, name);
 			if (inputStream != null) {
                 // fetches input stream of the upload file for the blob column
                 ps.setBlob(2, inputStream);
             }
+			ps.setLong(3, phoneNew);
 			ps.executeUpdate();
 			pw.println("added successfully");
 			con.close();
