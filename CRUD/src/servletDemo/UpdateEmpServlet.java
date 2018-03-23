@@ -22,13 +22,13 @@ public class UpdateEmpServlet extends HttpServlet {
 		try {
 		int id =Integer.parseInt( request.getParameter("id"));
 		String Uname = request.getParameter("name");
-		String pass = request.getParameter("pass");
+		String pass = request.getParameter("password");
 		String email = request.getParameter("email");
 		String mobile = request.getParameter("mobile");
 		String dateOfBirth = request.getParameter("dob");
 		String city = request.getParameter("city");
 		String country = request.getParameter("country");
-		
+		System.out.println(pass);
 		EmpBean e = new EmpBean();
 		e.setId(id);
 		e.setName(Uname);

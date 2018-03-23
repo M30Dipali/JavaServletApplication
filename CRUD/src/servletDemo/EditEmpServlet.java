@@ -31,7 +31,7 @@ public class EditEmpServlet extends HttpServlet {
         out.print("<tr><td>Name:</td><td><input type='text' name='name' value='"+e.getName()+"'/></td></tr>");  
         out.print("<tr><td>Password:</td><td><input type='password' name='password' value='"+e.getPass()+"'></td></tr>");  
         out.print("<tr><td>Email:</td><td><input type='email' name='email' value='"+e.getEmail()+"'/></td></tr>");
-        out.print("<tr><td>Contact No.:</td><td><input type='number' name='moble' value='"+e.getMobile()+"'/></td></tr>");
+        out.print("<tr><td>Contact No.:</td><td><input type='number' name='mobile' value='"+e.getMobile()+"'/></td></tr>");
         out.print("<tr><td>DateOfBirth:</td><td><input type='text' name='dob' value='"+e.getDOB()+"'/></td></tr>");
         out.print("<tr><td>City:</td><td>");  
         out.print("<select name='city' style='width:150px'>");  

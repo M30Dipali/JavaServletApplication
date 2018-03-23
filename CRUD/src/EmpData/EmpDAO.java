@@ -77,7 +77,8 @@ public class EmpDAO {
 		EmpBean e = new EmpBean();
 		try {
 			Connection con = EmpDAO.getConnection();
-			PreparedStatement ps = con.prepareStatement("select * from emp_details where id=?");
+			PreparedStatement ps = con.prepareStatement("select * from emp_details where Id=?");
+			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
 				e.setId(rs.getInt(1));
