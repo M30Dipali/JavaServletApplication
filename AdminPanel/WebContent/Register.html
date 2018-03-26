@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Employee Registration Form</title>
+<script type='text/javascript' src='js/jquery-1.7.1.min.js'></script>  
+<script src="js/jquery.validate.js"></script>  
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="js/RegisterValidate.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+     changeYear:true,
+      yearRange: "1970:2000",
+    	  dateFormat: 'dd/mm/yy'
+    });
+  } );
+  </script>
+</head>
+<body>
+<div align="center">
+<h1>Employee Registration Form</h1>
+<form action="RegisterServlet" method="post" id="registerform" enctype="multipart/form-data" >
+<table>
+			<tr><td>Employee Name :</td></tr>
+			<tr><td><input type="text" name="ename" id="ename" placeholder="Please Enter Name..." ></td></tr>
+			<tr><td>Email :</td></tr>
+			<tr><td><input type="email" name="email" id="email" placeholder="Please Enter Email..." ></td></tr>
+			<tr><td>Password :</td></tr>
+			<tr><td><input type="password" name="pass" id="pass" placeholder="Please Enter Password..."></td></tr>
+			<tr><td>Confirm-Password :</td></tr>
+			<tr><td><input type="password" name="cpass" id="cpass" placeholder="Re-enter Password..."></td></tr>
+			<tr><td>Gender :</td></tr>
+			<tr><td><input type="radio" name="gender"  value="Male" checked>Male
+			<input type="radio" name="gender" value="Female">Female</td></tr>
+			<tr><td>Date Of Birth :</td></tr>
+			<tr><td><input type="text" id="datepicker" name="date"></td></tr>
+			<tr><td>Contact No. :</td></tr>
+			<tr><td><input type="number" name="mobile" id="mobile" placeholder="Please Enter Contact Number...."></td></tr>
+			<tr><td>Photo :</td></tr>
+			<tr><td><input type="file" name="photo"></td></tr>
+			<tr><td>Address :</td></tr>
+			<tr><td><textarea name="address"></textarea></td></tr>
+			<tr><td><input type="submit" value="Register"></td></tr>
+</table>
+</form>
+</div>
+</body>
+</html>
