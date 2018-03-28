@@ -19,9 +19,9 @@ public class LoginFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		PrintWriter out=response.getWriter();  
-		String email = request.getParameter("email");
+		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
-		if(email.equals("admin@gmail.com") && pass.equals("admin123")){
+		if(name.equals("admin") && pass.equals("admin123")){
 		   chain.doFilter(request, response);
 	    }else {
 	    	out.print("<p>Sorry, name or password is incorrect</p>");

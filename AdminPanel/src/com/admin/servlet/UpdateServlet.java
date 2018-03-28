@@ -1,6 +1,7 @@
 package com.admin.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import com.admin.bean.EmpBean;
 import com.admin.dao.EmpDAO;
@@ -18,7 +20,7 @@ public class UpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
-		 int id=0;
+		int id=0;
 		String sid="";
 		String Uname = "";
 		String email="";
@@ -30,7 +32,8 @@ public class UpdateServlet extends HttpServlet {
 		try {
 			try {
 				sid=request.getParameter("id");  
-		        id=Integer.parseInt(sid);  
+				System.out.println(sid);
+				id=Integer.parseInt(sid);  
 				Uname = request.getParameter("name");
 				email = request.getParameter("email");
 				pass = request.getParameter("password");
@@ -41,7 +44,7 @@ public class UpdateServlet extends HttpServlet {
 			}catch(NullPointerException e) {
 			e.printStackTrace();
 			}
-			System.out.println(pass);
+			
 			EmpBean e = new EmpBean();
 			e.setId(id);
 			e.setName(Uname);

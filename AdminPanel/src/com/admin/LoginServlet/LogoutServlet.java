@@ -19,8 +19,8 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session=request.getSession();  
         session.invalidate();  
           
-        out.print("You are successfully logged out!");  
-          
+        out.print("<p align='center'>You are successfully logged out!</p>");  
+        out.print("<p align='center'><a href='Register.html'  style='text-align:center'>Go to Home Page</a></p>");
         out.close();  
 	}
 

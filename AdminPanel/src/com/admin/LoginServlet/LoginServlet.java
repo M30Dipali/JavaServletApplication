@@ -16,13 +16,13 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		
-		String email=request.getParameter("email"); 
+		String name=request.getParameter("name"); 
 		
         HttpSession session=request.getSession();  
-        session.setAttribute("Email",email);  
+        session.setAttribute("Name",name);  
 		
-        pw.println("<h3 align='center'>Welcome "+email+" You are successfully Login</h3>");
-		pw.print("<p align='center'><a href='ViewEmpServlet'>View Employee Records</a></p>");
+        pw.println("<h3 align='center'>Welcome "+name+" You are successfully Login</h3>");
+		pw.print("<p align='center'><a href='ViewEmpServlet?page=1'>View Employee Records</a></p>");
 	}
 
 }

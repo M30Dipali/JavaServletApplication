@@ -1,6 +1,7 @@
 package com.admin.dao;
 
 import java.util.List;
+
 import java.util.ArrayList;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import com.admin.bean.EmpBean;
 import com.admin.dao.EmpDAO;
+
 
 public class EmpDAO {
 	public static Connection getConnection() {
@@ -107,6 +109,7 @@ public class EmpDAO {
 			ps.setString(4, e.getGender());
 			ps.setString(5, e.getDOB());
 			ps.setString(6, e.getMobile());
+			
 			ps.setString(7, e.getAddress());
 			ps.setInt(8, e.getId());
 			
@@ -118,12 +121,12 @@ public class EmpDAO {
 		}
 		return status;
 	}
-	public static List<EmpBean> getAllEmployees(){  
+	public static List<EmpBean> getAllEmployees(int start,int total){  
         List<EmpBean> list=new ArrayList<EmpBean>();  
           
         try{  
             Connection con=EmpDAO.getConnection();  
-            PreparedStatement ps=con.prepareStatement("select * from emp_profile");  
+            PreparedStatement ps=con.prepareStatement("select * from emp_profile  limit "+(start-1)+","+total);  
             ResultSet rs=ps.executeQuery();  
             while(rs.next()){  
             	EmpBean e = new EmpBean();
@@ -156,4 +159,5 @@ public class EmpDAO {
 		}
 		return status;
 	}
+ 
 }

@@ -2,9 +2,9 @@ $(document).ready(function(){
 	
 $("#validation").validate({
     rules: {
-    	email:{
-    		required:true,
-    		email:true
+    	name:{
+    		required:true
+    		
     	},
       pass: {
         required: true            

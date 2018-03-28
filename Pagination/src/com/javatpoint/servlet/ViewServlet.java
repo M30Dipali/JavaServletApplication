@@ -18,14 +18,14 @@ public class ViewServlet extends HttpServlet {
  		response.setContentType("text/html");
  		PrintWriter out=response.getWriter();
  		
- 		String spageid=request.getParameter("page");
- 		int pageid=Integer.parseInt(spageid);
- 		int total=5;
- 		if(pageid==1){}
- 		else{
- 			pageid=pageid-1;
- 			pageid=pageid*total+1;
- 		}
+ 		String spageid=request.getParameter("page");  
+        int pageid=Integer.parseInt(spageid);  
+        int total=5;  
+        if(pageid==1){}  
+        else{  
+           pageid=pageid-1;  
+         pageid=pageid*total+1;  
+        }  
  		List<Emp> list=Empdao.getRecords(pageid,total);
 
  		out.print("<h1>Page No: "+spageid+"</h1>");

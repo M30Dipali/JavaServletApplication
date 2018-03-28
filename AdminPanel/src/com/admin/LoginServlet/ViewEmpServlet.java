@@ -22,22 +22,35 @@ public class ViewEmpServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		HttpSession session=request.getSession(false);  
         if(session!=null){  
-        String email=(String)session.getAttribute("Email");  
-        pw.print("<p align='center'>Hello, "+email+"</p>");  
+        String name=(String)session.getAttribute("Name");  
+        pw.print("<p align='center'>Hello, "+name+"</p>");  
 		
         pw.print("<h1 align='center'>Employee Profile</h1>");
-		List<EmpBean> list= EmpDAO.getAllEmployees();
-		
-		 pw.print("<table border='1' width='100%'");  
+        String spageid=request.getParameter("page");  
+        int pageid=Integer.parseInt(spageid);  
+        int total=5;  
+        if(pageid==1){}  
+        else{  
+           pageid=pageid-1;  
+         pageid=pageid*total+1;  
+        }  
+		List<EmpBean> list= EmpDAO.getAllEmployees(pageid,total);
+pw.print("<h2>Page No: "+spageid+"</h2>");
+		 pw.print("<table border='1' cellpadding='4' width='100%''");  
 	     pw.print("<tr><th>Id</th><th>Name</th><th>Email</th><th>Password</th><th>Gender</th><th>BirthDate</th>");
-	     pw.print("<th>Contact</th><th>Address</th><th>Delete</th></tr>");
+	     pw.print("<th>Contact</th><th>Photo</th><th>Address</th><th>Delete</th></tr>");
 	     for(EmpBean e:list) {  
 	        pw.print("<tr><td>"+e.getId()+"</td><td>"+e.getName()+"</td><td>"+e.getEmail()+"</td><td>"+e.getPass()+"</td>");
-	        pw.print("<td>"+e.getGender()+"</td><td>"+e.getDOB()+"</td><td>"+e.getMobile()+"</td><td>"+e.getAddress()+"</td>");
+	        pw.print("<td>"+e.getGender()+"</td><td>"+e.getDOB()+"</td><td>"+e.getMobile()+"</td><td><a href='ViewImage?id="+e.getId()+"'>View Photo</td><td>"+e.getAddress()+"</td>");
 	        pw.print("<td><a href='DeleteServlet?id="+e.getId()+"'>delete</a></td></tr>");  
 	        
 	     }  
 	     pw.print("</table>"); 
+	     pw.print("<a href='ViewEmpServlet?page=1'>1</a> ");  
+	        pw.print("<a href='ViewEmpServlet?page=2'>2</a> ");  
+	        pw.print("<a href='ViewEmpServlet?page=3'>3</a> ");  
+	        pw.print("<a href='ViewEmpServlet?page=4'>4</a> ");  
+	        pw.print("<a href='ViewEmpServlet?page=5'>5</a> "); 
 	     pw.println("<p align='center'><a href='LogoutServlet'>Logout</a></p>");
         }
 		pw.close();

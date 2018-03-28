@@ -42,7 +42,7 @@ public class EditServlet extends HttpServlet {
 		out.print("<body>");
 		
 		out.print("<div align='center'");
-		out.print("<h1>Update Employee Info</h1>");
+		out.print("<h2><b>Update Employee Infomation</b></h2><br><br>");
 		out.print("<form action='UpdateServlet' method='post'>");  
         out.print("<table>");  
         out.print("<tr><td></td><td><input type='hidden' name='id' value='"+id+"'/></td></tr>");  
@@ -56,7 +56,7 @@ public class EditServlet extends HttpServlet {
         out.print("<tr><td>Contact No.:</td><td><input type='number' name='mobile' value='"+e.getMobile()+"'/></td></tr>");
         out.print("<tr><td>Address :</td></tr>");
 		out.print("<tr><td><textarea name='address' value='"+e.getAddress()+"'></textarea></td></tr>");
-        out.print("<tr><td colspan='2'><input type='submit' value='Edit & Save '/></td></tr>");  
+        out.print("<tr><td colspan='2'><input type='submit' value='Edit & Save'></td></tr>");  
         out.print("</table>");  
         out.print("</form>");  
         out.print("</div>");

@@ -21,7 +21,7 @@ public class ViewServlet extends HttpServlet {
 		pw.print("<h1  align='center'>Employee Profile</h1>");
 		EmpBean e = EmpDAO.getInfoOfEmp();
 		
-		pw.println("<table border=2 width='50%' align='center'");
+		pw.println("<table border=2 width='50%' cellpadding='4' align='center'");
 		pw.println("<tr><th>ID</th><td>"+e.getId()+"</td></tr>");
 		pw.println("<tr><th>Name</th><td>"+e.getName()+"</td></tr>");
 		pw.println("<tr><th>Email</th><td>"+e.getEmail()+"</td></tr>");
@@ -29,6 +29,7 @@ public class ViewServlet extends HttpServlet {
 		pw.println("<tr><th>Gender</th><td>"+e.getGender()+"</td></tr>");
 		pw.println("<tr><th>BirthDate</th><td>"+e.getDOB()+"</td></tr>");
 		pw.println("<tr><th>Contact</th><td>"+e.getMobile()+"</td></tr>");
+		pw.println("<tr><th>Photo</th><td><a href='ViewImage?id="+e.getId()+"'>View Photo</td></tr>");
 		pw.println("<tr><th>Address</th><td>"+e.getAddress()+"</td></tr>");
 		pw.println("<tr><th>Update</th><td><a href=EditServlet?id="+e.getId()+">Update</a></td></tr>");
 		pw.println("</table>");
