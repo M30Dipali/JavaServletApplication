@@ -1,5 +1,7 @@
 package com.admin.dao;
 
+import java.util.List;
+import java.util.ArrayList;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -113,6 +115,44 @@ public class EmpDAO {
 			con.close();
 		}catch(Exception ex) {
 			ex.printStackTrace();
+		}
+		return status;
+	}
+	public static List<EmpBean> getAllEmployees(){  
+        List<EmpBean> list=new ArrayList<EmpBean>();  
+          
+        try{  
+            Connection con=EmpDAO.getConnection();  
+            PreparedStatement ps=con.prepareStatement("select * from emp_profile");  
+            ResultSet rs=ps.executeQuery();  
+            while(rs.next()){  
+            	EmpBean e = new EmpBean();
+    				e.setId(rs.getInt(1));
+    				e.setName(rs.getString(2));
+    				e.setEmail(rs.getString(3));
+    				e.setPass(rs.getString(4));
+    				e.setGender(rs.getString(5));
+    				e.setDOB(rs.getString(6));
+    				e.setMobile(rs.getString(7));
+    				e.setAddress(rs.getString(9));
+    			
+                list.add(e);  
+            }  
+            con.close();  
+        }catch(Exception e){e.printStackTrace();}  
+          
+        return list;  
+    }  
+ public static int deleteInfo(int id) {
+		int status =0;
+		try {
+			Connection con = EmpDAO.getConnection();
+			PreparedStatement ps = con.prepareStatement("delete from emp_profile where id=?");
+			ps.setInt(1, id);
+			status = ps.executeUpdate();
+			con.close();
+		}catch(Exception ex3) {
+			ex3.printStackTrace();
 		}
 		return status;
 	}
