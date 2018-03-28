@@ -4,14 +4,25 @@
   <display-name>image</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-  </welcome-file-list>
-  <servlet>
-  <servlet-name>s1</servlet-name>
-  <servlet-class>controller.Serv</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  <servlet-name>s1</servlet-name>
-  <url-pattern>/Serv</url-pattern>
-  </servlet-mapping>
-</web-app>
-</element>
+    <welcome-file>image.html</welcome-file>
+    </welcome-file-list>
+    <servlet>
+    <servlet-name>s1</servlet-name>
+    <servlet-class>controller.Serv</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>s1</servlet-name>
+    <url-pattern>/Serv</url-pattern>
+    </servlet-mapping>
+   <servlet>
+    <servlet-name>s2</servlet-name>
+    <servlet-class>imageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>s2</servlet-name>
+    <url-pattern>/imageServlet</url-pattern>
+    </servlet-mapping>
+    
+    </web-app></element>
+
+

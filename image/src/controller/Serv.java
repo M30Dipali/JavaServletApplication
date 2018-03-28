@@ -23,8 +23,8 @@ public class Serv extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		String name = request.getParameter("name");
-		long phoneNew = Long.parseLong( request.getParameter("phone"));
-		System.out.println(phoneNew);
+		String phone=  request.getParameter("phone");
+		
 		InputStream inputStream = null; // input stream of the upload file
         
         // obtains the upload file part in this multipart request
@@ -47,10 +47,11 @@ public class Serv extends HttpServlet {
                 // fetches input stream of the upload file for the blob column
                 ps.setBlob(2, inputStream);
             }
-			ps.setLong(3, phoneNew);
+			ps.setString(3, phone);
 			ps.executeUpdate();
 			pw.println("added successfully");
 			con.close();
+			request.getRequestDispatcher("image.html").forward(request,response);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
