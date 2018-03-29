@@ -20,7 +20,7 @@ public class ViewServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		pw.print("<h1  align='center'>Employee Profile</h1>");
 		EmpBean e = EmpDAO.getInfoOfEmp();
-		//hello readers
+		//sorry file cannot upload
 		pw.println("<table border=2 width='50%' cellpadding='4' align='center'");
 		pw.println("<tr><th>ID</th><td>"+e.getId()+"</td></tr>");
 		pw.println("<tr><th>Name</th><td>"+e.getName()+"</td></tr>");
