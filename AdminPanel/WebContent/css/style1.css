@@ -1,11 +1,11 @@
 body{
-	background-image:url("b4.jpg");
+	background-image:url("a4.jpg");
 	background-size:cover;
 }
-#form{
+.aa{
 	width:400px;
 	height:750px;
-	background-color:rgba(0,0,0,0.1);
+	background-color:rgba(0,0,0,0.8);
 	margin-left:200px;
 	margin-top:5px;
 	border:1px solid black;
@@ -21,7 +21,7 @@ body{
 	box-shadow: 7px 7px 15px black;
 	
 }
-div #ename,#email,#pass,#cpass,#gender,#mobile,#address,#datepicker{
+div #ename,#email,#pass,#cpass,#admin,#mobile{
 	width:300px;
 	height:25px;
 	border:1px solid black;
@@ -34,7 +34,7 @@ div #ename,#email,#pass,#cpass,#gender,#mobile,#address,#datepicker{
 button{
 	width:130px;
 	height:25px;
-	background-color:#8080c0;
+	background-color:#fe22ff;
 	border:1px solid black;
 	color:white;
 	font-weight:bolder;

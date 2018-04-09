@@ -2,26 +2,45 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css/style1.css"> 
+<link rel="stylesheet" href="css/style.css"> 
 <title>Admin Login</title>
+<style>
+a:link {
+    color: red;
+}
+a:visited {
+    color: #00FFFF;
+}
+a:hover {
+    color: #DC143C;
+}
+a:active {
+    color: #FF4500;
+}
+</style>
 <script type='text/javascript' src='js/jquery-1.7.1.min.js'></script>  
 <script src="js/jquery.validate.js"></script>  
 <script type="text/javascript" src="js/validate.js"></script>
+
 </head>
 <body>
-<p align="center"><b> Login Admin | <a href="Register.html">Register Employee</a></b></p><br/><br/>
-<div align="center">
+
+
+<div class="a1">
+<p align="center"><b> <a href="Register.html">Register</a>| Login</b></p></div>
+<div class="a2">
 <form action="LoginServlet" method="post" id="validation">
 <h2>Welcome Admin</h2>
 <table>
-<tr>
-	<td>Username</td>
-	<td><input type="text" name="name"></td>
-</tr>
-<tr>
-     <td>Password: </td>
-     <td><input type="password" name="pass"></td>
-</tr>
+
+
+	<tr><td><input type="text" name="name" id="name" placeholder="User Name" ></td></tr>
+
+
+
+     <tr><td><input type="password" name="pass" id="pass" placeholder="Password"></td></tr><tr></tr><tr></tr>
+
+
 <tr>
 	<td><input type="submit" value="Login"></td>
 </tr>

@@ -1,0 +1,21 @@
+ename:{
+    		required:true
+    	},
+email:{
+    		required:true,
+    		email:true
+    	},
+date:{
+        	required:true
+        },
+photo:{
+        	required:true
+        }
+required: true,
+required: true,
+required:true,
+<script type='text/javascript' src='js/jquery-1.7.1.min.js'></script>  
+<script src="js/jquery.validate.js"></script>  
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="js/RegisterValidate.js"></script>
