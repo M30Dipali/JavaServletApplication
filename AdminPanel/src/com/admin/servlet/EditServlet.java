@@ -21,26 +21,7 @@ public class EditServlet extends HttpServlet {
 		EmpBean e = EmpDAO.getElementById(id);
 		
 		out.print("<html>");
-		out.print("<head>");
-		out.print("<meta charset='ISO-8859-1'>");
-		 out.print("<meta name='viewport' content='width=device-width, initial-scale=1'>");
-		 out.print("<script type='text/javascript' src='js/jquery-1.7.1.min.js'></script>");  
-		out.print("<script src='js/jquery.validate.js'></script>");  
-		out.print("<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>");
-		out.print("<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>");
-		out.print("<script>");
-		  out.print("$( function() {");
-		    out.print("$( '#datepicker').datepicker({");
-		      out.print("changeMonth: true,");
-		     out.print("changeYear:true,");
-		      out.print("yearRange: '1970:2000',");
-		    	  out.print("dateFormat: 'dd/mm/yy'");
-		    out.print("});");
-		 out.print(" } );");
-		 out.print(" </script>");
-		out.print("</head>");
 		out.print("<body>");
-		
 		out.print("<div align='center'");
 		out.print("<h2><b>Update Employee Infomation</b></h2><br><br>");
 		out.print("<form action='UpdateServlet' method='post'>");  
@@ -55,7 +36,7 @@ public class EditServlet extends HttpServlet {
 		out.print("<tr><td>DateOfBirth:</td><td><input type='text' id='datepicker' name='date' value='"+e.getDOB()+"'/></td></tr>");
         out.print("<tr><td>Contact No.:</td><td><input type='number' name='mobile' value='"+e.getMobile()+"'/></td></tr>");
         out.print("<tr><td>Address :</td></tr>");
-		out.print("<tr><td><textarea name='address' value='"+e.getAddress()+"'></textarea></td></tr>");
+		out.print("<tr><td><textarea name='address'>"+e.getAddress()+"</textarea></td></tr>");
         out.print("<tr><td colspan='2'><input type='submit' value='Edit & Save'></td></tr>");  
         out.print("</table>");  
         out.print("</form>");  
